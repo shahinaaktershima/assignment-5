@@ -1,52 +1,57 @@
-// purchase button disabled when total price <0;
-const btnPurchase=document.getElementById('purchase');
-    let purchase =document.getElementById("total-price").innerText;
-    let value=parseFloat(purchase);
-    if(value<=0){
-        btnPurchase.disabled=true;
+
+function textShow(id){
+const parent=document.getElementById('card-name');
+const count =parent.childElementCount;
+const item=document.getElementById(id).innerText;
+const p =document.createElement('p');
+p.classList.add('font-bold');
+p.innerHTML=`${count} ${item}`;
+parent.appendChild(p);
+}
+// add all cards price to total
+function totalPriceCalculation(id){
+    const totalPrice=document.getElementById('total-price');
+    const btnApply=document.getElementById('apply');
+    const remainingTotal=document.getElementById('total');
+    const totalPriceValue =parseFloat(totalPrice.innerText);
+const price =document.getElementById(id).innerText;
+const pricevalue=parseFloat(price);
+console.log(pricevalue);
+const total =totalPriceValue+pricevalue;
+const totalFixed=total.toFixed(2);
+totalPrice.innerText =totalFixed;
+remainingTotal.innerText =totalFixed;
+addDisabled();
+}
+// discount section
+document.getElementById('apply').addEventListener('click',function(){
+    console.log('clicked');
+    const promoCode=document.getElementById('code').textContent;
+    console.log(promoCode)
+    const input=document.getElementById('coupon').value;
+    console.log(input); 
+    if(input===promoCode){
+        const totalPrice=document.getElementById('total-price');
+        const remainingTotal=document.getElementById('total');
+        const discount=document.getElementById('discount');
+        const discountValue=parseFloat(totalPrice.innerText)*(20/100);
+        console.log(discountValue);
+        const discountFixed=discountValue.toFixed(2)
+        discount.innerText=discountFixed;
+        const total=parseFloat(totalPrice.innerText)-discountValue;
+        const totalFixed=total.toFixed(2);
+        remainingTotal.innerText=totalFixed;
     }
     else{
-        btnPurchase.disabled=false;
+        alert('please provide the right code');
     }
-    // apply button enabled when total price >200;
-    const btnApply=document.getElementById('Apply');
-   if(value<=200){
-    btnApply.disabled=true;
-   }
-   else{
-    btnApply.disabled=false;
-   }
-// total price of all cards
+    
+})
 
-const apply=document.getElementById('apply');
-const totalPice =document.getElementById('total-price');
-if(totalPice>=200){
-    apply.removeAttribute('disabled');
-}
-else{
-    apply.setAttribute('disabled',true);
-}
-document.addEventListener("DOMContentLoaded", function() {
-    var totalPrice = document.getElementById("total-price");
-    var buyButton = document.getElementById("apply");
-
-    // Example: Initialize total price
-    var totalPrice = 0;
-
-    // Function to update the button status
-    function updateButtonStatus() {
-        if (totalPrice > 200) {
-            buyButton.removeAttribute("disabled");
-        } else {
-            buyButton.setAttribute("disabled", "disabled");
-        }
-    }})
-    const totalPrice=document.getElementById('total-price');
-const totalPriceValue =parseFloat(totalPrice.innerText);
-const btnApply=document.getElementById('apply');
-if(totalPriceValue>=200){
-    btnApply.removeAttribute('disabled');
-}
-else{
-    btnApply.setAttribute('disabled',true);
-}
+// create new modal 
+document.getElementById('close').addEventListener('click',function(){
+ document.getElementById('total-price').innerText='0.00';
+ document.getElementById('discount').innerText='0.00';
+ document.getElementById('total').innerText='0.00';
+ document.getElementById('card-name').textContent='';
+})
