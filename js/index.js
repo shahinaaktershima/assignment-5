@@ -17,7 +17,4 @@ const btnPurchase=document.getElementById('purchase');
     btnApply.disabled=false;
    }
 // total price of all cards
-function addTotal(){
-    const price =document.getElementById('prices').innerText;
-    
-}
+
