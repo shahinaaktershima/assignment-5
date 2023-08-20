@@ -18,3 +18,35 @@ const btnPurchase=document.getElementById('purchase');
    }
 // total price of all cards
 
+const apply=document.getElementById('apply');
+const totalPice =document.getElementById('total-price');
+if(totalPice>=200){
+    apply.removeAttribute('disabled');
+}
+else{
+    apply.setAttribute('disabled',true);
+}
+document.addEventListener("DOMContentLoaded", function() {
+    var totalPrice = document.getElementById("total-price");
+    var buyButton = document.getElementById("apply");
+
+    // Example: Initialize total price
+    var totalPrice = 0;
+
+    // Function to update the button status
+    function updateButtonStatus() {
+        if (totalPrice > 200) {
+            buyButton.removeAttribute("disabled");
+        } else {
+            buyButton.setAttribute("disabled", "disabled");
+        }
+    }})
+    const totalPrice=document.getElementById('total-price');
+const totalPriceValue =parseFloat(totalPrice.innerText);
+const btnApply=document.getElementById('apply');
+if(totalPriceValue>=200){
+    btnApply.removeAttribute('disabled');
+}
+else{
+    btnApply.setAttribute('disabled',true);
+}

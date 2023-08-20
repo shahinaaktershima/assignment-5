@@ -10,25 +10,25 @@
 <body>
     <header class="bg-[#F9F6E2]">
         <!-- banner section -->
-        <section class="container mx-auto flex justify-around items-center">
+        <section class="container mx-auto flex justify-around items-center lg:flex-row flex-col py-7">
             <div class="text-center">
            <p class="text-lg font-medium">---SALE FEVER---</p>
 <h2 class="text-4xl font-bold my-2">Purchase TK 200 or <br> above & get <span class="text-[#E527B2]">20% off</span></h2>
            <span class="font-bold">Use Promo Code</span>
 <button class="btn bg-[#E527B2] text-white" id="code">SELL200</button>
             </div>
-            <div class="w-[508px] h-[508px]"><img class="h-full w-full" src="./images/Summer 1.png" alt=""></div>
+            <div class="md:w-[508px] w-[300px] h-[508px]"><img class="h-full w-full" src="./images/Summer 1.png" alt=""></div>
         </section>
     </header>
     <main class="bg-neutral-300">
-        <section class="flex container mx-auto py-14 justify-between gap-24">
+        <section class="flex container mx-auto py-14 justify-between gap-24 flex-col lg:flex-row px-5">
             <!-- card section -->
             <section class="flex-1">
                 <div>
-                    <div >
+                    <div>
                     <h2 class="text-3xl font-bold my-3">Kitchenware</h2>
                     
-                    <div class="grid grid-cols-3 gap-5">
+                    <div class="grid lg:grid-cols-3 grid-cols-1 gap-5 ">
                         <!-- first card -->
                         <div class="card bg-base-200 shadow-xl " onclick="textShow('first-title'),totalPriceCalculation('prices')"  >
                             <figure class="px-10 pt-10 ">
@@ -83,11 +83,11 @@
                     </div>
                 </div>
             </div>
-                <div class="-mr-20 ml-16 my-14">
+                <div class="lg:-mr-20 lg:ml-16 my-14">
                     <div >
                     <h2 class="text-3xl font-bold my-3">Sportswear</h2>
                     
-                    <div class="grid grid-cols-3 gap-5">
+                    <div class="grid gap-5 lg:grid-cols-3 grid-cols-1">
                         <!-- fourth card -->
                         <div class="card bg-base-200 shadow-xl " onclick="textShow('fourth-title'),totalPriceCalculation('price-fourth')">
                             <figure class="px-10 pt-10 ">
@@ -145,11 +145,11 @@
                 
             </section>
             <!-- cart section -->
-            <section class="">
+            <section class="my-14">
                 <div class="bg-white my-2 p-4 rounded-md">
                     <h2 class="font-bold text-xl">Have coupon?</h2>
                     <input class="border  px-3 py-2 rounded-md" placeholder="coupon code" type="text" id="coupon" >
-                    <button class="btn bg-[#E527B2] text-white ml-[-20px] border-0" id="apply">Apply</button>
+                    <button class="btn bg-[#E527B2] text-white ml-[-20px] border-0" id="apply" disabled>Apply</button>
                 </div>
                 
                     <div class="bg-white p-4 rounded-md">
@@ -166,7 +166,17 @@
                             
                         </div>
                     </div>
-                    <div> <button id="purchase" class=" btn bg-[#E527B2] text-white w-full border-0 -mt-5" >Make Purchases</button></div>
+                    <div> <button id="purchase" class=" btn bg-[#E527B2] text-white w-full border-0 -mt-5" onclick="my_modal_5.showModal()">Make Purchases</button>
+                    
+<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+  <form method="dialog" class="modal-box text-center">
+    <img class="mx-auto" src="./images/congo.png" alt="">
+    <h3 class="font-bold text-xl">Congratulations</h3>
+    <p class="py-4">You purchase the product</p>
+      <button class="btn bg-[#E527B2] text-white" id="close">GO HOME</button>
+  </form>
+</dialog>
+                    </div>
                    
                
             </section>
