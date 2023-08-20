@@ -11,7 +11,6 @@ parent.appendChild(p);
 // add all cards price to total
 function totalPriceCalculation(id){
     const totalPrice=document.getElementById('total-price');
-    const btnApply=document.getElementById('apply');
     const remainingTotal=document.getElementById('total');
     const totalPriceValue =parseFloat(totalPrice.innerText);
 const price =document.getElementById(id).innerText;
@@ -28,9 +27,11 @@ document.getElementById('apply').addEventListener('click',function(){
     console.log('clicked');
     const promoCode=document.getElementById('code').textContent;
     console.log(promoCode)
-    const input=document.getElementById('coupon').value;
+    const firstInput=document.getElementById('coupon');
+    const input=firstInput.value;
     console.log(input); 
     if(input===promoCode){
+        firstInput.value='';
         const totalPrice=document.getElementById('total-price');
         const remainingTotal=document.getElementById('total');
         const discount=document.getElementById('discount');
@@ -41,11 +42,12 @@ document.getElementById('apply').addEventListener('click',function(){
         const total=parseFloat(totalPrice.innerText)-discountValue;
         const totalFixed=total.toFixed(2);
         remainingTotal.innerText=totalFixed;
+        
     }
     else{
         alert('please provide the right code');
+        firstInput.value='';
     }
-    
 })
 
 // create new modal 
